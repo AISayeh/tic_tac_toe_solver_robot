@@ -1,4 +1,4 @@
-This project is a script written in Python to drive a robotic arm (connected to a robotic arm and an Arduino UNO chip) in order to observe, analyze and play tic-tac-toe game with a human.
+This project is a script written in Python to drive a RaspberryPI (connected to a robotic arm and an Arduino UNO chip) in order to observe, analyze and play tic-tac-toe game with a human.
 
 - The board state is read via a camera and processed / analyzed using OpenCV.
 - The algorithm used to find the best move is minimax.
