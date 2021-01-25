@@ -19,22 +19,6 @@ int positions [15][4] = {
   {80, 40, 150, 60} //12
 };
 
-/*
-int positions2 [12][4] = {
-  {128, 160, 120, 20}, //initial position
-  {143, 130, 160, 20}, //square 1
-  {130, 140, 180, 30}, //square 2
-  {120, 150, 170, 40}, //3
-  {142, 130, 160, 20}, //4
-  {130, 165, 130, 30}, //5
-  {110, 160, 130, 40}, //6
-  {161, 200, 120, 25}, //7 
-  {129, 210, 100, 25}, //8
-  {105, 210, 100, 40}, //9
-  {90, 170, 150, 20} //10
-};
-*/
-
 int current = -1;
 bool selected = false;
 int selected_ndx = 0;
@@ -96,8 +80,6 @@ void setup() {
   
   Serial.begin(9600);
   pinMode(2, OUTPUT);
-  
-  //moveToSquare(0);
 }
 
 void loop() {
@@ -110,39 +92,17 @@ void loop() {
       delay(delay_ms);
       servo2.write(servo2.read() + 10);
       return;
-    } else if (new_pos == "drop"){
+    } else if (new_pos == "drop") {
       digitalWrite(2, LOW);
       servo2.write(servo2.read() - 10);
       delay(delay_ms);
       servo2.write(servo2.read() + 10);
       return;
     }
-
-    /*
-    if (!selected) {
-      int ndx = new_pos.toInt();
-      if (ndx >=0 && ndx <= 3) {
-        selected_ndx = ndx;
-        selected = true;
-      }
-      
-    } else {
-      int next = new_pos.toInt();
-      delayMovement(&servos[selected_ndx],servos[selected_ndx].read(),next);
-      selected = false;
-      
-    }
-
-
-    return; 
-    */
-    
-        pos = new_pos.toInt();
-        isOnMove = true;
-        delay(delay_ms);
-        moveToSquare(pos);
-    
-    
+        
+    pos = new_pos.toInt();
+    isOnMove = true;
+    delay(delay_ms);
+    moveToSquare(pos);   
   }
-
 }
